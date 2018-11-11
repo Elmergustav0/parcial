@@ -1,0 +1,827 @@
+/*hacer un sistema para el alquiler devehiculos,
+implementando imagenes en consola*/
+
+/*
+-este programa fue echo por:
+Elmer Gustavo Gonzalez Gonzalez
+
+-carnet:  GG18040
+*/
+#include <iostream>
+#include <cstdlib>
+#include <iomanip>  
+#include <windows.h> 
+#include <cstdio> 
+
+using namespace std;
+
+//declaramos el prototipo de la funcion
+void menu_principal ();
+void menu_MostrarVehiculos ();
+void menu_AgregarCliente ();
+void menu_AgregarVehiculo ();
+void menu_toyota ();
+void menu_aseptar();
+void menu_cancelar();
+void menu_mitsubishi ();
+void menu_mazda ();
+void menu_porsche ();
+void menu_honda ();
+void menu_lexus ();
+void menu_bmw ();
+void menu_audi ();
+void cargar();//declaracion//funcion que permite un tiempo de carga
+
+ 
+int main(int argc, char** argv) {
+	
+	cout<<"---------------------------------------------------------------------------------"<<endl;
+	cout<<"---------------------------------------------------------------------------------"<<endl;
+	cout<<"  "<<endl;
+	cout<<"  "<<endl;
+	cout<< "\n\n\tVIENVENIDOS AL PROGRAMA\n";
+	cout<<"  "<<endl;
+	cout<<"  "<<endl;
+	cout<<"---------------------------------------------------------------------------------"<<endl;
+    cout<<"---------------------------------------------------------------------------------"<<endl;
+	
+	cargar();
+	system("cls");
+	
+	menu_principal ();
+
+ return 0;
+ 
+} 
+
+
+//funcion que permite dar un tiempo de carga
+void cargar(){
+
+	//Variable cargar servira como contador
+	int carga = 1;
+
+	cout << "\nEl programa esta cargando" << endl;
+
+
+	//ciclo while para generar un tiempo de carga
+	do {
+
+		//Funcion Sleep para permite generar un tiempo de carga
+		Sleep(1000);
+
+		cout << "....";  
+		
+		//Variable carga se utiliza como contador
+		carga++;
+
+	} while (carga < 4);
+
+}
+
+//se declara el cuerpo de la funcion
+void menu_principal () {
+	//permite controlar el ciclo, bucle
+	bool repite = true;
+	int opcion;
+	
+	do {
+		
+		//el tipo del menu
+		cout << "\n\t\t\tMENU PRINCIPAL\n";
+		
+		//las opciones del menu
+		cout << "\n\t1. Mostrar Vehiculos\n";
+		cout << "\t2. Agregar Cliente\n";
+		cout << "\t3. Agregar Vehiculo\n";
+		cout << "\t0. Salir\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+			
+			case 1:
+				menu_MostrarVehiculos ();
+				break;
+				
+			case 2:
+				menu_AgregarCliente ();
+				break;
+				
+			case 3:
+				menu_AgregarVehiculo ();
+				break;
+				
+			case 0:
+				repite = false;
+				break;
+		}
+		
+	} while(repite);
+	system("cls");//esta funcion limpia la pantalla
+}
+
+void menu_MostrarVehiculos (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU MOSTRAR VEHICULOS\n";
+		cout << "\n\t\tDETALLES DE LOS VEHICULO DISPONIBLES\n";
+		
+		//las opciones del menu
+		cout << "\n\t1. TOYOTA\n";
+		cout << "\t2. MITSUBISHI\n";
+		cout << "\t3. MAZDA\n";
+		cout << "\t4. PORSCHE\n";
+		cout << "\t5. HONDA\n";
+		cout << "\t6. LEXUS\n";
+		cout << "\t7. BMW\n";
+		cout << "\t8. AUDI\n";
+		cout << "\t0. Volver al Menu\n";
+		
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+			
+			case 1:
+				menu_toyota ();
+				break;
+			case 2:
+				menu_mitsubishi ();
+				break;
+			case 3:
+				menu_mazda ();
+				break;
+			case 4:
+				menu_porsche ();
+				break;
+			case 5:
+				menu_honda ();
+				break;
+			case 6:
+				menu_lexus ();
+				break;
+			case 7:
+				menu_bmw ();
+				break;
+			case 8:
+				menu_audi ();
+				break;
+				
+			case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 
+
+void menu_toyota (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	int suma;
+	int a;
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU TOYOTA\n";
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		
+		//detalles del vehiculo
+		cout << "\n\t\tDETALLES DEL VEHICULO \n";
+		
+		cout << "\tModelo: Toyota Corolla \n";
+		cout << "\tYear: 2015\n";
+		cout << "\tChasis: HFX: TU1JP 1.1I 60 CV\n";
+		
+		//el precio en que se renta el carro 
+		cout << "\n\t Este vehiculo se Renta por : $170.0 dolares semanal\n";
+		cout <<"\tcuanto semanas desea alquilar el vehiculo\n";
+		cin >> a;
+		suma = a * 170;
+		cout<<"el total de su renta es:"<<suma<<endl;
+		
+		//preguntar si le parecen los precios de la renta.
+		cout << "\n\tESTA INTERESADO EN RENTAR ESTE VEHICULO\n";
+		cout << "\t1. Aseptar\n";
+		cout << "\t2. Cancelar\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		case 1:
+			menu_aseptar();
+			break;
+			
+		case 2:
+			menu_cancelar();
+			break;
+			case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 
+
+void menu_aseptar (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		cout << "\n\t\tGRACIAS POR RENTAR ESTE VEHICULO \n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		
+			case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 
+
+void menu_cancelar (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		cout << "\n\t\tVUELVE AL MENU PARA VER MAS SUGERENCIAS!!! GRACIAS.\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		
+			case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 
+
+void menu_mitsubishi (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	int suma1;
+	int b;
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU MITSUBISHI\n";
+		
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		
+		cout << "\n\t\tDETALLES DEL VEHICULO \n";
+		cout << "\tmodelo: Mitsubishi Space Star\n";
+		cout << "\tYear: 2016\n";
+		cout << "\tChasis: HFY: TU1JP 1.1I 60 CV\n";
+		
+		//el precio en que se renta el carro 
+		cout << "\n\t Este vehiculo se Renta por : $150.0 dolares semanal\n";
+		cout <<"\tcuanto semanas desea alquilar el vehiculo\n";
+		cin >> b;
+		suma1 = b * 150;
+		cout<<"el total de su renta es:"<<suma1<<endl;
+		
+		//preguntar si le parecen los precios de la renta.
+		cout << "\n\tESTA INTERESADO EN RENTAR ESTE VEHICULO\n";
+		cout << "\t1. Aseptar\n";
+		cout << "\t2. Cancelar\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		case 1:
+			menu_aseptar();
+			break;
+			
+		case 2:
+			menu_cancelar();
+			break;
+			
+		case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 	
+
+void menu_mazda (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	int suma2;
+	int c;
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU MAZDA\n";
+		
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		
+		cout << "\n\t\tDETALLES DEL VEHICULO \n";
+		cout << "\tmodelo: Mazda CX-3\n";
+		cout << "\tYear: 2014\n";
+		cout << "\tChasis: NFZ: TU5JP 1.4I61 90 CV\n";
+		
+		//el precio en que se renta el carro 
+		cout << "\n\t Este vehiculo se Renta por : $160.0 dolares semanal\n";
+		cout <<"\tcuanto semanas desea alquilar el vehiculo\n";
+		cin >> c;
+		suma2 = c * 160;
+		cout<<"el total de su renta es:"<<suma2<<endl;
+		
+		//preguntar si le parecen los precios de la renta.
+		cout << "\n\tESTA INTERESADO EN RENTAR ESTE VEHICULO\n";
+		cout << "\t1. Aseptar\n";
+		cout << "\t2. Cancelar\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		case 1:
+			menu_aseptar();
+			break;
+			
+		case 2:
+			menu_cancelar();
+			break;
+			
+		case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 	
+
+void menu_porsche (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	int suma3;
+	int d;
+	
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que linpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU PORSCHE\n";
+		
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		
+		cout << "\n\t\tDETALLES DEL VEHICULO \n";
+		cout << "\tmodelo: Porsche Carrera GT\n";
+		cout << "\tYear: 2003 \n";
+		cout << "\tChasis: KFU: ET3J4 1.4I 90 CV\n";
+				
+		//el precio en que se renta el carro 
+		cout << "\n\t Este vehiculo se Renta por : $125.0 dolares semanal\n";
+		cout <<"\tcuanto semanas desea alquilar el vehiculo\n";
+		cin >> d;
+		suma3 = d * 125;
+		cout<<"el total de su renta es:"<<suma3<<endl;
+		
+		//preguntar si le parecen los precios de la renta.
+		cout << "\n\tESTA INTERESADO EN RENTAR ESTE VEHICULO\n";
+		cout << "\t1. Aseptar\n";
+		cout << "\t2. Cancelar\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		case 1:
+			menu_aseptar();
+			break;
+			
+		case 2:
+			menu_cancelar();
+			break;	
+			
+		case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 	
+
+void menu_honda (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	int suma4;
+	int e;
+	
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU HONDA\n";
+		
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		
+		cout << "\n\t\tDETALLES DEL VEHICULO \n";
+		cout << "\tmodelo: Honda Civic EX\n";
+		cout << "\tYear: 2018 \n";
+		cout << "\tChasis: NFU: TU5JP4 1.4I 16V 110 CV\n";
+		
+		
+		//el precio en que se renta el carro 
+		cout << "\n\t Este vehiculo se Renta por : $140.0 dolares semanal\n";
+		cout <<"\tcuanto semanas desea alquilar el vehiculo\n";
+		cin >> e;
+		suma4 = e * 140;
+		cout<<"el total de su renta es:"<<suma4<<endl;
+		
+		//preguntar si le parecen los precios de la renta.
+		cout << "\n\tESTA INTERESADO EN RENTAR ESTE VEHICULO\n";
+		cout << "\t1. Aseptar\n";
+		cout << "\t2. Cancelar\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		case 1:
+			menu_aseptar();
+			break;
+			
+		case 2:
+			menu_cancelar();
+			break;
+				
+		case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 	
+
+void menu_lexus (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	int suma5;
+	int f;
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU LEXUS\n";
+		
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		
+		cout << "\n\t\tDETALLES DEL VEHICULO \n";
+		cout << "\tModelo: LEXUS IFA\n";
+		cout << "\tYear: 2018\n";
+		cout << "\tChasis: 8HX: DV4TD 1.4I HDI 68 CV\n";
+		
+		//el precio en que se renta el carro 
+		cout << "\n\t Este vehiculo se Renta por : $135.0 dolares semanal\n";
+		cout <<"\tcuanto semanas desea alquilar el vehiculo\n";
+		cin >> f;
+		suma5 = f * 135;
+		cout<<"el total de su renta es:"<<suma5<<endl;
+		
+		//preguntar si le parecen los precios de la renta.
+		cout << "\n\tESTA INTERESADO EN RENTAR ESTE VEHICULO\n";
+		cout << "\t1. Aseptar\n";
+		cout << "\t2. Cancelar\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		case 1:
+			menu_aseptar();
+			break;
+			
+		case 2:
+			menu_cancelar();
+			break;	
+			
+		case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 	
+
+void menu_bmw (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	int suma6;
+	int g;
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia l pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU BMW\n";
+		
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		
+		cout << "\n\t\tDETALLES DEL VEHICULO \n";
+		cout << "\tModelo: BMW M140i\n";
+		cout << "\tYear: 2017\n";
+		cout << "\tChasis: RHY: DW10TD 2.0I HDI 90 CV\n";
+		
+		//el precio en que se renta el carro 
+		cout << "\n\t Este vehiculo se Renta por : $130.0 dolares semanal\n";
+		cout <<"\tcuanto semanas desea alquilar el vehiculo\n";
+		cin >> g;
+		suma6 = g * 130;
+		cout<<"el total de su renta es:"<<suma6<<endl;
+		
+		//preguntar si le parecen los precios de la renta.
+		cout << "\n\tESTA INTERESADO EN RENTAR ESTE VEHICULO\n";
+		cout << "\t1. Aseptar\n";
+		cout << "\t2. Cancelar\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		case 1:
+			menu_aseptar();
+			break;
+			
+		case 2:
+			menu_cancelar();
+			break;	
+			
+		case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 	
+
+void menu_audi (){
+	
+	//declaracion de variables
+	bool repite = true;
+	int opcion;
+	int suma7;
+	int h;
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU AUDI\n";
+		
+		
+		//las opciones del menu
+		cout << "\t0. Volver al Menu\n";
+		
+		cout << "\n\t\tDETALLES DEL VEHICULO \n";
+		cout << "\tModelo: Audi TT RS\n";
+		cout << "\tYear: 2018\n";
+		cout << "\tChasis: HZA: DV6TED4 1.6 HDi 110 CV\n";
+		
+		//el precio en que se renta el carro 
+		cout << "\n\t Este vehiculo se Renta por : $100.0 dolares semanal\n";
+		cout <<"\tcuanto semanas desea alquilar el vehiculo\n";
+		cin >> h;
+		suma7 = h * 100;
+		cout<<"el total de su renta es:"<<suma7<<endl;
+		
+		//preguntar si le parecen los precios de la renta.
+		cout << "\n\tESTA INTERESADO EN RENTAR ESTE VEHICULO\n";
+		cout << "\t1. Aseptar\n";
+		cout << "\t2. Cancelar\n";
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+		case 1:
+			menu_aseptar();
+			break;
+			
+		case 2:
+			menu_cancelar();
+			break;
+				
+		case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 	
+
+void menu_AgregarCliente (){
+	
+	//declaracion de variables
+    bool repite = true;
+    int opcion;
+	char nombre[10];
+	char apellido[10];
+	int dui;
+	char direccion[15];
+	
+	do {
+		cargar();//funcion que permite un tiempo de carga
+		system("cls");//funcion que limpia la pantallla
+		
+		//el tipo del menu
+		cout << "\n\t\t\tMENU AGREGAR CLIENTE\n";
+		
+		//las opciones del menu
+		cout << "\n\t1. Nombre\n";
+		cout << "\t2. Apellido\n";
+		cout << "\t3. DUI\n";
+		cout << "\t4. Direccion\n";
+		cout << "\t0. Volver al Menu\n";
+		
+		//los datos que se pediran para que el usuario los ejecute
+		cout << "\n\tDIGITAR NOMBRE\n";
+		cin >>nombre;
+	
+		cout << "\n\tDIGITAR APELLIDO\n";
+		cin >>apellido;
+		
+		cout << "\n\tDIGITAR NUMERO DE DUI\n";
+		cin >>dui;
+	
+		cout << "\n\tDIGITAR DIRECION\n";
+		cin >>direccion;
+			
+		//	datos que se mostraran en la salida estandar.
+		cout<<"\n\tnombre: "<<nombre<<endl;
+		cout<<"\tapellido: "<<apellido<<endl;
+		cout<<"\tdui: "<<dui<<endl;
+		cout<<"\tdireccion: "<<direccion<<endl;	
+		
+		
+			//alternativas
+		switch (opcion) {
+				
+			case 0:
+				repite = false;
+				break;
+			
+		}
+		
+	}while(repite);
+
+} 
+
+
+
+void menu_AgregarVehiculo (){
+
+    //declaracion de variables
+    bool repite = true;
+	int opcion;
+	char modelo[20];
+	int year;
+	char chasis[20];
+	
+   do {
+    	cargar();//funcion que permite un tiempo de carga
+		system("cls");//esta funcion limpia la pantalla
+		//el tipo del menu
+		cout << "\n\t\t\tMENU AGREGAR VEHICULO\n";
+		
+		//las opciones del menu
+		cout << "\n\t1. modelo\n";
+		cout << "\t2. Year\n";
+		cout << "\t3. Chasis\n";
+		cout << "\t0. Volver al Menu\n";
+		
+		
+		cout << "\n\tDIGITAR MODELO\n";
+		cin >>modelo;
+	
+		cout << "\n\tDIGITAR YEAR\n";
+		cin >>year;
+		
+		cout << "\n\tDIGITAR CHASIS\n";
+		cin >>chasis;
+	
+			
+		//	datos que se mostraran en la salida estandar.
+		cout<<"\tModelo: "<<modelo<<endl;
+		cout<<"\tYear: "<<year<<endl;
+		cout<<"\tchasis: "<<chasis<<endl;
+		
+		//leer las opcion elegida por el usuario
+		cout << "\n\tOpcion: ";
+		cin >> opcion;
+		
+		//alternativas
+		switch (opcion) {
+			
+			case 0:
+				repite = false;
+				break;
+		}
+		
+	}while(repite);
+	system("cls");//esta funcion limpia la pantalla
+} 
